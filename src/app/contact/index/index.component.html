@@ -1,0 +1,55 @@
+<div class="container" style="padding: 0px; margin: 0px;">
+    <div class="row mt-2">
+        <div class="col-2" style="border: 1px solid #ddd; min-height: 480px;">
+            <table class="table table-bordered" style="margin-top: 5px; border: 1px solid #ddd;">
+                <tr>
+                    <th>ID</th>
+                    <th>Contact</th>
+                </tr>
+
+                <tr *ngFor="let contact of contacts" (click)="fetchContact(contact.id)">
+                    <td>{{ contact.id }}</td>
+                    <td>{{ contact.fullName }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-5">
+            <div style="border: 1px solid #ddd; min-height: 240px; margin: 0 1px;">
+                Contact details
+                <hr/>
+            </div>
+            <div style="border: 1px solid #ddd; min-height: 240px; max-height: 240px; margin: 0 1px; overflow: scroll;">
+                Linked Entities
+                <hr/>
+                <table class="table table-bordered" style="margin-top: 5px; border: 1px solid #ddd;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Entity Type</th>
+                        <th>Entity Name</th>
+                    </tr>
+    
+                    <tr *ngFor="let entity of entities" (click)="fetchContact(contact.id)">
+                        <td>{{ entity.id }}</td>
+                        <td>{{ entity.entityType }}</td>
+                        <td>{{ entity.name }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-5">
+            <div style="border: 1px solid #ddd; min-height: 120px; margin-left: -12px;">
+                Notes
+                <hr/>
+                {{ notes }}
+            </div>
+            <div style="border: 1px solid #ddd; min-height: 360px; margin-left: -12px;">
+                Comments, Activity
+                <hr/>
+                <div *ngFor="let comment of comments">
+                    {{ comment.user }} {{ comment.timestamp | date:'dd-MM-yyyy hh:mm' }} <br/>
+                    {{ comment.text }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
