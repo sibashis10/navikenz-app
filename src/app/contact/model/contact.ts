@@ -1,3 +1,10 @@
+export interface PageInfo {
+    totalItems: number,
+    totalPages: number,
+    currentPage: number,
+    contacts: Contact[]
+}
+
 export interface Contact {
     id: number,
     firstName: string,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../service/contact.service';
-import { Contact, ContactDetails, Comment, IdentifiedEntity } from '../model/contact';
+import { Contact, ContactDetails, Comment, IdentifiedEntity, PageInfo } from '../model/contact';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class IndexComponent implements OnInit {
 
+  pageInfo: PageInfo;
   contactDetails: ContactDetails;
   contacts: Contact[] = [];
   entities: IdentifiedEntity[] = [];
@@ -21,8 +22,9 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {
-        this.contactService.findByName(params.contactName).subscribe((data: Contact[]) => {
-          this.contacts = data;
+        this.contactService.findByName(params.contactName).subscribe((data: PageInfo) => {
+          this.pageInfo = data;
+          this.contacts = this.pageInfo.contacts;
           console.log(this.contacts);
         });
       }
