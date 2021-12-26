@@ -1,3 +1,8 @@
-tr :hover {
+tr:not(:first-child):hover {
     cursor: pointer;
+    background-color: #E1D5E7;
+}
+
+tr.highlighted {
+    background-color: #E1D5E7;
 }

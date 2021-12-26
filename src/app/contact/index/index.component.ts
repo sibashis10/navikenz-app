@@ -58,8 +58,10 @@ export class IndexComponent implements OnInit {
     });
   }
 
-  fetchContact(id: number) {
+  fetchContact(index: number, id: number) {
     console.log(id);
+    this.currentIndex = index;
+    console.log(this.currentIndex);
     this.contactService.find(id).subscribe((res: ContactDetails) => {
       this.currentContact = res;
       console.log(this.currentContact);
