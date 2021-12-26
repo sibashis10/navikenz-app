@@ -36,8 +36,8 @@ export class ContactService {
       .pipe(catchError(this.errorHandler))
   }
 
-  findByName(searchTxt: string): Observable<Object> {
-    return this.httpClient.get(this.apiURL + '/findByName?contactName=' + searchTxt)
+  findByName(params: any): Observable<Object> {
+    return this.httpClient.get(this.apiURL + '/findByName', { params })
       .pipe(catchError(this.errorHandler))
   }
 
