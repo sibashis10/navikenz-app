@@ -13,6 +13,7 @@ export interface Contact {
 }
 
 export interface ContactEntity extends Contact {
+    email: string,
     phone: string,
     notes: string,
     createdOn: Date,

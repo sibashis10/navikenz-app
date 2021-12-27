@@ -29,44 +29,45 @@
                 </select>
             </div>
         </div>
+        
         <div class="col-5">
             <div style="border: 1px solid #ddd; min-height: 275px; margin: 0 1px;">
                 <div style="padding:7px;">
                     <strong>Contact details</strong>
                     <hr/>
-                    <form *ngIf="currentContact">
+                    <form [formGroup]="contactForm" *ngIf="currentContact">
                         <div class="row" style="margin-bottom: .5rem">
                             <label for="id" class="col-sm-2">ID:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control form-control-sm" id="id"/>
+                                <input id="id" formControlName="id" type="text" class="form-control form-control-sm" />
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: .5rem">
                             <label for="firstName" class="col-sm-2">Firstname:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control form-control-sm" id="firstName"/>
+                                <input id="firstName" formControlName="firstName" type="text" class="form-control form-control-sm" />
                             </div>
                             <label for="lastName" class="col-sm-2">Lastname:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control form-control-sm" id="lastName"/>
+                                <input id="lastName" formControlName="lastName" type="text" class="form-control form-control-sm" />
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: .5rem">
                             <label for="fullName" class="col-sm-2">Fullname:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control form-control-sm" id="fullName" disabled="true" />
+                                <input id="fullName" formControlName="fullName" type="text" class="form-control form-control-sm" />
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: .5rem">
                             <label for="email" class="col-sm-2">Email:</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control form-control-sm" id="email"/>
+                                <input id="email" formControlName="email" type="email" class="form-control form-control-sm" />
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: .5rem">
                             <label for="phone" class="col-sm-2">Phone:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control form-control-sm" id="phone"/>
+                                <input id="phone" formControlName="phone" type="text" class="form-control form-control-sm" />
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: .5rem">
@@ -105,11 +106,11 @@
             </div>
         </div>
         <div class="col-5" style="border: 1px solid #ddd; min-height: 550px; max-height: 550px; padding:7px;">
-            <div>
+            <div [formGroup]="contactForm">
                 <strong>Notes</strong>
                 <hr/>
-                <div style="border: 1px solid #ddd; min-height: 120px; overflow-y: scroll;">
-                    {{ notes }}
+                <div style="border: 1px solid #ddd; min-height: 120px; max-height: 120px;">
+                    <textarea *ngIf="currentContact" formControlName="notes" class="form-control form-control-sm" style="resize: none; height: 8.5em"></textarea>
                 </div>
             </div>
             <div style="min-height: 430px; padding-top: 15px;">
@@ -128,9 +129,9 @@
                     </div>
                 </div>
                 <div class="col-12 text-center">
-                    <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="enableFields()">Edit</button>
                     <button type="button" class="btn btn-primary btn-sm">Save</button>
-                    <button type="button" class="btn btn-secondary btn-sm">Cancel</button>
+                    <button type="button" class="btn btn-secondary btn-sm" (click)="cancelUpdatedFields()">Cancel</button>
                 </div>
             </div>
         </div>
