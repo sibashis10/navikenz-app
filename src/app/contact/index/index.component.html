@@ -45,11 +45,11 @@
                         <div class="row" style="margin-bottom: .5rem">
                             <label for="firstName" class="col-sm-2">Firstname:</label>
                             <div class="col-sm-4">
-                                <input id="firstName" formControlName="firstName" type="text" class="form-control form-control-sm" />
+                                <input id="firstName" formControlName="firstName" [class.is-invalid]="firstName.invalid && firstName.touched" type="text" class="form-control form-control-sm" />
                             </div>
                             <label for="lastName" class="col-sm-2">Lastname:</label>
                             <div class="col-sm-4">
-                                <input id="lastName" formControlName="lastName" type="text" class="form-control form-control-sm" />
+                                <input id="lastName" formControlName="lastName" [class.is-invalid]="lastName.invalid && lastName.touched" type="text" class="form-control form-control-sm" />
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: .5rem">
@@ -61,13 +61,13 @@
                         <div class="row" style="margin-bottom: .5rem">
                             <label for="email" class="col-sm-2">Email:</label>
                             <div class="col-sm-10">
-                                <input id="email" formControlName="email" type="email" class="form-control form-control-sm" />
+                                <input id="email" formControlName="email" [class.is-invalid]="email.invalid && email.touched" type="email" class="form-control form-control-sm" email />
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: .5rem">
                             <label for="phone" class="col-sm-2">Phone:</label>
                             <div class="col-sm-10">
-                                <input id="phone" formControlName="phone" type="text" class="form-control form-control-sm" />
+                                <input id="phone" formControlName="phone" [class.is-invalid]="phone.invalid && phone.touched" type="text" class="form-control form-control-sm" />
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: .5rem">
@@ -110,7 +110,7 @@
                 <strong>Notes</strong>
                 <hr/>
                 <div style="border: 1px solid #ddd; min-height: 120px; max-height: 120px;">
-                    <textarea *ngIf="currentContact" formControlName="notes" class="form-control form-control-sm" style="resize: none; height: 8.5em"></textarea>
+                    <textarea *ngIf="currentContact"  [class.is-invalid]="notes.invalid && notes.touched" formControlName="notes" class="form-control form-control-sm" style="resize: none; height: 8.5em"></textarea>
                 </div>
             </div>
             <div style="min-height: 430px; padding-top: 15px;">

@@ -35,6 +35,26 @@ export class IndexComponent implements OnInit {
     notes: ['', [Validators.required]]
   });
 
+  get firstName() {
+    return this.contactForm.get('firstName');
+  }
+
+  get lastName() {
+    return this.contactForm.get('lastName');
+  }
+
+  get email() {
+    return this.contactForm.get('email');
+  }
+
+  get phone() {
+    return this.contactForm.get('phone');
+  }
+
+  get notes() {
+    return this.contactForm.get('notes');
+  }
+
   ngOnInit(): void {
     this.retrieveContacts();
   }
