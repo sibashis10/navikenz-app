@@ -35,12 +35,20 @@ export class IndexComponent implements OnInit {
     notes: ['', [Validators.required]]
   });
 
+  get id() {
+    return this.contactForm.get('id');
+  }
+
   get firstName() {
     return this.contactForm.get('firstName');
   }
 
   get lastName() {
     return this.contactForm.get('lastName');
+  }
+
+  get fullName() {
+    return this.contactForm.get('fullName');
   }
 
   get email() {
@@ -102,13 +110,13 @@ export class IndexComponent implements OnInit {
         phone: this.currentContact.phone,
         notes: this.currentContact.notes
       });
-      this.contactForm.get('id').disable();
-      this.contactForm.get('firstName').disable();
-      this.contactForm.get('lastName').disable();
-      this.contactForm.get('fullName').disable();
-      this.contactForm.get('email').disable();
-      this.contactForm.get('phone').disable();
-      this.contactForm.get('notes').disable();
+      this.id.disable();
+      this.firstName.disable();
+      this.lastName.disable();
+      this.fullName.disable();
+      this.email.disable();
+      this.phone.disable();
+      this.notes.disable();
       this.entities = this.currentContact.identifiedEntities;
       this.comments = this.currentContact.comments;
     });
@@ -132,12 +140,16 @@ export class IndexComponent implements OnInit {
     this.retrieveContacts();
   }
 
+  updateFullName(): void {
+    this.fullName.setValue(this.firstName.value + ' ' + this.lastName.value);    
+  }
+
   enableFields(): void {
-    this.contactForm.get('firstName').enable();
-    this.contactForm.get('lastName').enable();
-    this.contactForm.get('email').enable();
-    this.contactForm.get('phone').enable();
-    this.contactForm.get('notes').enable();
+    this.firstName.enable();
+    this.lastName.enable();
+    this.email.enable();
+    this.phone.enable();
+    this.notes.enable();
   }
 
   cancelUpdatedFields(): void {
@@ -149,11 +161,11 @@ export class IndexComponent implements OnInit {
       phone: this.currentContact.phone,
       notes: this.currentContact.notes
     });
-    this.contactForm.get('firstName').disable();
-    this.contactForm.get('lastName').disable();
-    this.contactForm.get('email').disable();
-    this.contactForm.get('phone').disable();
-    this.contactForm.get('notes').disable();
+    this.firstName.disable();
+    this.lastName.disable();
+    this.email.disable();
+    this.phone.disable();
+    this.notes.disable();
   }
 
 }

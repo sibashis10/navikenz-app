@@ -45,11 +45,11 @@
                         <div class="row" style="margin-bottom: .5rem">
                             <label for="firstName" class="col-sm-2">Firstname:</label>
                             <div class="col-sm-4">
-                                <input id="firstName" formControlName="firstName" [class.is-invalid]="firstName.invalid && firstName.touched" type="text" class="form-control form-control-sm" />
+                                <input id="firstName" formControlName="firstName" [class.is-invalid]="firstName.invalid && firstName.touched" type="text" class="form-control form-control-sm" (blur)="updateFullName()" />
                             </div>
                             <label for="lastName" class="col-sm-2">Lastname:</label>
                             <div class="col-sm-4">
-                                <input id="lastName" formControlName="lastName" [class.is-invalid]="lastName.invalid && lastName.touched" type="text" class="form-control form-control-sm" />
+                                <input id="lastName" formControlName="lastName" [class.is-invalid]="lastName.invalid && lastName.touched" type="text" class="form-control form-control-sm" (blur)="updateFullName()" />
                             </div>
                         </div>
                         <div class="row" style="margin-bottom: .5rem">
